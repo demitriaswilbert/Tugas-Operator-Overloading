@@ -110,6 +110,6 @@ void PersegiPanjang::operator--(int)
 }
 std::ostream& operator<<(std::ostream& os, PersegiPanjang& p)
 {
-    os << "{ min(" << p[0] << "x, " << p[1] << "y), max(" << p[2] << "x, " << p[3] << "y) }";
+    os << "{ min: (" << p[0] << "x, " << p[1] << "y), max: (" << p[2] << "x, " << p[3] << "y), Luas: "<< p.getArea() <<" }";
     return os;
 }

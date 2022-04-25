@@ -18,11 +18,8 @@ int main()
     std::cout << std::endl;
 
     std::cout << "P3 (P1 + P2) : " << p3 << std::endl;
-    std::cout << "Luas P3 : " << p3.getArea() << std::endl;
     p3++;
     std::cout << "Increment P3 : " << p3 << std::endl;
-    std::cout << "Luas P3 setelah increment : " << p3.getArea() << std::endl;
     p3--;
     std::cout << "Decrement P3 : " << p3 << std::endl;
-    std::cout << "Luas P3 setelah decrement : " << p3.getArea() << std::endl;
 }
