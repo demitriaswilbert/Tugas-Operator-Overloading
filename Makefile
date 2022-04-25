@@ -15,10 +15,10 @@ vpath %.cpp $(sort $(dir $(SOURCE)))
 $(BUILD_DIR) :
 	mkdir $@
 
-$(BUILD_DIR)/%.o: %.cpp Makefile | $(BUILD_DIR)
+$(BUILD_DIR)/%.o: %.cpp $(BUILD_DIR)
 	$(CXX) -c $(CXXFLAGS) $< -o $@ 
 
-$(BUILD_DIR)/$(TARGET).exe : $(OBJS) Makefile
+$(BUILD_DIR)/$(TARGET).exe : $(OBJS) 
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 run : $(BUILD_DIR)/$(TARGET).exe
