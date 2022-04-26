@@ -17,9 +17,9 @@ class PersegiPanjang
     PersegiPanjang operator-(PersegiPanjang const& p2);
     bool operator==(PersegiPanjang const& p2);
     double operator[](int i);
-    void operator++();      // preIncrement
-    void operator++(int);   // postIncrement
-    void operator--();
-    void operator--(int);
+    PersegiPanjang operator++();      // preIncrement
+    PersegiPanjang operator++(int);   // postIncrement
+    PersegiPanjang operator--();
+    PersegiPanjang operator--(int);
 };
-std::ostream& operator<<(std::ostream& os, PersegiPanjang& p);
+std::ostream& operator<<(std::ostream& os, PersegiPanjang p);
