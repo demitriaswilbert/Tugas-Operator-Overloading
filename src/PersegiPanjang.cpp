@@ -151,10 +151,10 @@ bool PersegiPanjang::operator==(PersegiPanjang const& p2)
  * @param i xmin: 0, ymin: 1, xmax: 2, ymax: 3
  * @return double nilai dari xmin, ymin, xmax, ymax
  */
-double PersegiPanjang::operator[](int i)
+double& PersegiPanjang::operator[](int i)
 {
-    double tmp[] = {this->xmin, this->ymin, this->xmax, this->ymax};
-    return tmp[i % 4];
+    double* tmp[] = {&(this->xmin), &(this->ymin), &(this->xmax), &(this->ymax)};
+    return *tmp[i % 4];
 }
 
 /**
