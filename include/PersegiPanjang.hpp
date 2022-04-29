@@ -4,8 +4,8 @@
 class PersegiPanjang
 {
   private:
-  public:
     double xmin, ymin, xmax, ymax;
+  public:
     // constructor
     PersegiPanjang(double xmid, double ymid, double xlen, double ylen);
     void set(double _xmin, double _ymin, double _xmax, double _ymax);
@@ -16,7 +16,7 @@ class PersegiPanjang
     PersegiPanjang operator+(PersegiPanjang const& p2);
     PersegiPanjang operator-(PersegiPanjang const& p2);
     bool operator==(PersegiPanjang const& p2);
-    double operator[](int i);
+    double& operator[](int i);
     PersegiPanjang operator++();      // preIncrement
     PersegiPanjang operator++(int);   // postIncrement
     PersegiPanjang operator--();
