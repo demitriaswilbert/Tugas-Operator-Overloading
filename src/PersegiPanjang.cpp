@@ -11,9 +11,11 @@
 PersegiPanjang::PersegiPanjang(double xmid, double ymid, double xlen, double ylen)
 // : xmin(xmid), ymin(ymid), xmax(xlen), ymax(ylen)
 {
+    // nilai minimum adalah nilai tengah dikurangi setengah nilai panjang
     this->xmin = xmid - (xlen / 2);
-    this->xmax = this->xmin + xlen;
     this->ymin = ymid - (ylen / 2);
+    // nilai maksimum adalah nilai minimum ditambah panjang
+    this->xmax = this->xmin + xlen;
     this->ymax = this->ymin + ylen;
 }
 
@@ -34,7 +36,7 @@ void PersegiPanjang::set(double _xmin, double _ymin, double _xmax, double _ymax)
 }
 
 /**
- * @brief menghitung luas dari persegi panjang
+ * @brief menghitung luas dari persegi panjang (panjang horizontal * panjang vertical)
  * 
  * @return double nilai luas persegi panjang
  */
@@ -49,10 +51,13 @@ double PersegiPanjang::getArea() { return ((xmax - xmin) * (ymax - ymin)); }
  */
 bool PersegiPanjang::overlap(PersegiPanjang p2)
 {
+    // jika salah satu persegi-panjang memiliki panjang/lebar 0
     if (this->xmin == this->xmax || this->ymin == this->ymax || p2.xmin == p2.xmax || p2.ymin == p2.ymax)
         return false;
+    // jika salah satu persegi berada diatas persegi lainnya
     if (this->xmin >= p2.xmax || p2.xmin >= this->xmax)
         return false;
+    // jika salah satu persegi berada disebelah kanan persegi lainnya
     if (this->ymin >= p2.ymax || p2.ymin >= this->ymax)
         return false;
     return true;
@@ -68,16 +73,20 @@ bool PersegiPanjang::overlap(PersegiPanjang p2)
  */
 PersegiPanjang PersegiPanjang::add(PersegiPanjang p2)
 {
+    // beririsan
     if (this->overlap(p2))
-    {
+    {   
+        //ambil nilai min terkecil dari kedua persegi
         double minx = (this->xmin < p2.xmin) ? this->xmin : p2.xmin;
         double miny = (this->ymin < p2.ymin) ? this->ymin : p2.ymin;
+        //ambil nilai max terbesar dari kedua persegi
         double maxx = (this->xmax > p2.xmax) ? this->xmax : p2.xmax;
         double maxy = (this->ymax > p2.ymax) ? this->ymax : p2.ymax;
         PersegiPanjang tmp = PersegiPanjang(0, 0, 0, 0);
         tmp.set(minx, miny, maxx, maxy);
         return tmp;
     }
+    // tidak beririsan
     return PersegiPanjang(0, 0, 0, 0);
 }
 
@@ -91,16 +100,20 @@ PersegiPanjang PersegiPanjang::add(PersegiPanjang p2)
  */
 PersegiPanjang PersegiPanjang::subtract(PersegiPanjang p2)
 {
+    // beririsan
     if (this->overlap(p2))
     {
+        //ambil nilai min terbesar dari kedua persegi
         double minx = (this->xmin > p2.xmin) ? this->xmin : p2.xmin;
         double miny = (this->ymin > p2.ymin) ? this->ymin : p2.ymin;
+        //ambil nilai max terkecil dari kedua persegi
         double maxx = (this->xmax < p2.xmax) ? this->xmax : p2.xmax;
         double maxy = (this->ymax < p2.ymax) ? this->ymax : p2.ymax;
         PersegiPanjang tmp = PersegiPanjang(0, 0, 0, 0);
         tmp.set(minx, miny, maxx, maxy);
         return tmp;
     }
+    // tidak beririsan
     return PersegiPanjang(0, 0, 0, 0);
 }
 
@@ -166,13 +179,16 @@ double& PersegiPanjang::operator[](int i)
  */
 PersegiPanjang PersegiPanjang::operator++()
 {
+    // hitung nilai tengah
     double midx = (this->xmin + this->xmax) / 2;
     double midy = (this->ymin + this->ymax) / 2;
+    // kalikan panjang dan lebar dengan faktor akar 2 tanpa mengubah nilai tengah
     this->xmin = midx - ((midx - this->xmin) * pow(2, 0.5));
     this->ymin = midy - ((midy - this->ymin) * pow(2, 0.5));
     this->xmax = midx + ((this->xmax - midx) * pow(2, 0.5));
     this->ymax = midy + ((this->ymax - midy) * pow(2, 0.5));
     PersegiPanjang pNew = PersegiPanjang(*this);
+    // karena pre increment, kembalikan nilai baru
     return pNew;
 }
 
@@ -185,8 +201,11 @@ PersegiPanjang PersegiPanjang::operator++()
  */
 PersegiPanjang PersegiPanjang::operator++(int)
 {
+    // simpan nilai lama
     PersegiPanjang pNew = PersegiPanjang(*this);
+    // gunakan metode pre increment
     ++(*this);
+    // karena post increment, kembalikan nilai lama
     return pNew;
 }
 
@@ -199,13 +218,16 @@ PersegiPanjang PersegiPanjang::operator++(int)
  */
 PersegiPanjang PersegiPanjang::operator--()
 {
+    // hitung nilai tengah
     double midx = (this->xmin + this->xmax) / 2;
     double midy = (this->ymin + this->ymax) / 2;
+    // bagikan panjang dan lebar dengan faktor akar 2 tanpa mengubah nilai tengah
     this->xmin = midx - ((midx - this->xmin) / pow(2, 0.5));
     this->ymin = midy - ((midy - this->ymin) / pow(2, 0.5));
     this->xmax = midx + ((this->xmax - midx) / pow(2, 0.5));
     this->ymax = midy + ((this->ymax - midy) / pow(2, 0.5));
     PersegiPanjang pNew = PersegiPanjang(*this);
+    // karena pre decrement, kembalikan nilai baru
     return pNew;
 }
 
@@ -218,8 +240,11 @@ PersegiPanjang PersegiPanjang::operator--()
  */
 PersegiPanjang PersegiPanjang::operator--(int)
 {
+    // simpan nilai lama
     PersegiPanjang pNew = PersegiPanjang(*this);
+    // gunakan metode pre decrement
     --(*this);
+    // karena post decrement, kembalikan nilai lama
     return pNew;
 }
 
@@ -233,6 +258,7 @@ PersegiPanjang PersegiPanjang::operator--(int)
  */
 std::ostream& operator<<(std::ostream& os, PersegiPanjang p)
 {
+    // cetak nilai xmin, ymin, xmax, ymax 
     os << "{ min: (" << p[0] << "x, " << p[1] << "y), max: (" << p[2] << "x, " << p[3] << "y), Luas: "<< p.getArea() <<" }";
     return os;
 }
