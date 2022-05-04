@@ -9,7 +9,6 @@
  * @param ylen panjang y
  */
 PersegiPanjang::PersegiPanjang(double xmid, double ymid, double xlen, double ylen)
-// : xmin(xmid), ymin(ymid), xmax(xlen), ymax(ylen)
 {
     // nilai minimum adalah nilai tengah dikurangi setengah nilai panjang
     this->xmin = xmid - (xlen / 2);
@@ -73,6 +72,8 @@ bool PersegiPanjang::overlap(PersegiPanjang p2)
  */
 PersegiPanjang PersegiPanjang::add(PersegiPanjang p2)
 {
+    // persegi panjang dengan nilai 0
+    PersegiPanjang tmp = PersegiPanjang(0, 0, 0, 0);
     // beririsan
     if (this->overlap(p2))
     {   
@@ -82,12 +83,9 @@ PersegiPanjang PersegiPanjang::add(PersegiPanjang p2)
         //ambil nilai max terbesar dari kedua persegi
         double maxx = (this->xmax > p2.xmax) ? this->xmax : p2.xmax;
         double maxy = (this->ymax > p2.ymax) ? this->ymax : p2.ymax;
-        PersegiPanjang tmp = PersegiPanjang(0, 0, 0, 0);
         tmp.set(minx, miny, maxx, maxy);
-        return tmp;
     }
-    // tidak beririsan
-    return PersegiPanjang(0, 0, 0, 0);
+    return tmp;
 }
 
 /**
@@ -100,6 +98,8 @@ PersegiPanjang PersegiPanjang::add(PersegiPanjang p2)
  */
 PersegiPanjang PersegiPanjang::subtract(PersegiPanjang p2)
 {
+    // persegi panjang dengan nilai 0
+    PersegiPanjang tmp = PersegiPanjang(0, 0, 0, 0);
     // beririsan
     if (this->overlap(p2))
     {
@@ -109,12 +109,9 @@ PersegiPanjang PersegiPanjang::subtract(PersegiPanjang p2)
         //ambil nilai max terkecil dari kedua persegi
         double maxx = (this->xmax < p2.xmax) ? this->xmax : p2.xmax;
         double maxy = (this->ymax < p2.ymax) ? this->ymax : p2.ymax;
-        PersegiPanjang tmp = PersegiPanjang(0, 0, 0, 0);
         tmp.set(minx, miny, maxx, maxy);
-        return tmp;
     }
-    // tidak beririsan
-    return PersegiPanjang(0, 0, 0, 0);
+    return tmp;
 }
 
 /**
