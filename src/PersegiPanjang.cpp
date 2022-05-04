@@ -50,9 +50,6 @@ double PersegiPanjang::getArea() { return ((xmax - xmin) * (ymax - ymin)); }
  */
 bool PersegiPanjang::overlap(PersegiPanjang p2)
 {
-    // jika salah satu persegi-panjang memiliki panjang/lebar 0
-    if (this->xmin == this->xmax || this->ymin == this->ymax || p2.xmin == p2.xmax || p2.ymin == p2.ymax)
-        return false;
     // jika salah satu persegi berada diatas persegi lainnya
     if (this->xmin >= p2.xmax || p2.xmin >= this->xmax)
         return false;
