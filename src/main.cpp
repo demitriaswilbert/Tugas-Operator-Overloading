@@ -26,21 +26,21 @@ int main()
     std::cout << std::endl;
 
     std::cout << "[----------------Pre Increment / Decrement----------------]" << std::endl;
-    std::cout << "Saat Pre Increment P3 : " << ++p3 << std::endl;
-    std::cout << "P3 Sekarang           : " << p3 << std::endl;
+    std::cout << "Saat Pre Increment P3  : " << ++p3 << std::endl;
+    std::cout << "P3 Sekarang            : " << p3 << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Saat Pre Decrement P3 : " << --p3 << std::endl;
-    std::cout << "P3 Sekarang           : " << p3 << std::endl;
+    std::cout << "Saat Pre Decrement P3  : " << --p3 << std::endl;
+    std::cout << "P3 Sekarang            : " << p3 << std::endl;
     std::cout << std::endl;
 
     std::cout << "[---------------Post Increment / Decrement----------------]" << std::endl;
     std::cout << "Saat Post Increment P3 : " << p3++ << std::endl;
-    std::cout << "P3 Sekarang           : " << p3 << std::endl;
+    std::cout << "P3 Sekarang            : " << p3 << std::endl;
     std::cout << std::endl;
 
     std::cout << "Saat Post Decrement P3 : " << p3-- << std::endl;
-    std::cout << "P3 Sekarang           : " << p3 << std::endl;
+    std::cout << "P3 Sekarang            : " << p3 << std::endl;
     std::cout << std::endl;
 
 }
