@@ -6,7 +6,6 @@ class PersegiPanjang
   private:
     double xmin, ymin, xmax, ymax;
   public:
-    // constructor
     PersegiPanjang(double xmid, double ymid, double xlen, double ylen);
     void set(double _xmin, double _ymin, double _xmax, double _ymax);
     double getArea();
