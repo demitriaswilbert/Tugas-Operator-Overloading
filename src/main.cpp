@@ -22,20 +22,20 @@ int main()
     std::cout << "P4 (P1 - P2) : " << p4 << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Pre Increment P3 : " << ++p3 << std::endl;
-    std::cout << "P3 Sekarang : " << p3 << std::endl;
+    std::cout << "Saat Pre Increment P3 : " << ++p3 << std::endl;
+    std::cout << "P3 Sekarang           : " << p3 << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Pre Decrement P3 : " << --p3 << std::endl;
-    std::cout << "P3 Sekarang : " << p3 << std::endl;
+    std::cout << "Saat Pre Decrement P3 : " << --p3 << std::endl;
+    std::cout << "P3 Sekarang           : " << p3 << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Post Increment P3 : " << p3++ << std::endl;
-    std::cout << "P3 Sekarang : " << p3 << std::endl;
+    std::cout << "Saat Post Increment P3 : " << p3++ << std::endl;
+    std::cout << "P3 Sekarang           : " << p3 << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Post Decrement P3 : " << p3-- << std::endl;
-    std::cout << "P3 Sekarang : " << p3 << std::endl;
+    std::cout << "Saat Post Decrement P3 : " << p3-- << std::endl;
+    std::cout << "P3 Sekarang           : " << p3 << std::endl;
     std::cout << std::endl;
 
 }
