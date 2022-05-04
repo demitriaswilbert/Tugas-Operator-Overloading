@@ -3,6 +3,7 @@
 
 int main()
 {
+    std::cout << "[-----------------------Constructor-----------------------]" << std::endl;
     PersegiPanjang p0 = PersegiPanjang(-6, -7, 6, 6);
     std::cout << "P0 : " << p0 << std::endl;
     PersegiPanjang p1 = PersegiPanjang(0, 0, 10, 20);
@@ -11,17 +12,20 @@ int main()
     std::cout << "P2 : " << p2 << std::endl;
     std::cout << std::endl;
 
+    std::cout << "[-----------------------Cek Irisan------------------------]" << std::endl;
     std::cout << "P0" << ((p0 == p1) ? "" : " Tidak") << " Beririsan dengan P1" << std::endl;
     std::cout << "P0" << ((p0 == p2) ? "" : " Tidak") << " Beririsan dengan P2" << std::endl;
     std::cout << "P1" << ((p1 == p2) ? "" : " Tidak") << " Beririsan dengan P2" << std::endl;
     std::cout << std::endl;
 
+    std::cout << "[--------------------Gabungan / Irisan--------------------]" << std::endl;
     PersegiPanjang p3 = p1 + p2;
     std::cout << "P3 (P1 + P2) : " << p3 << std::endl;
     PersegiPanjang p4 = p1 - p2;
     std::cout << "P4 (P1 - P2) : " << p4 << std::endl;
     std::cout << std::endl;
 
+    std::cout << "[----------------Pre Increment / Decrement----------------]" << std::endl;
     std::cout << "Saat Pre Increment P3 : " << ++p3 << std::endl;
     std::cout << "P3 Sekarang           : " << p3 << std::endl;
     std::cout << std::endl;
@@ -30,6 +34,7 @@ int main()
     std::cout << "P3 Sekarang           : " << p3 << std::endl;
     std::cout << std::endl;
 
+    std::cout << "[---------------Post Increment / Decrement----------------]" << std::endl;
     std::cout << "Saat Post Increment P3 : " << p3++ << std::endl;
     std::cout << "P3 Sekarang           : " << p3 << std::endl;
     std::cout << std::endl;
