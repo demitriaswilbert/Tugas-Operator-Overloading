@@ -1,3 +1,15 @@
+/**
+ * @file main.cpp
+ * @brief 
+ * Tugas Operator Overloading
+ * 
+ * @author 
+ * Nama  : Demitrias Wilbert (demitriaswilbert@gmail.com)
+ * NRP   : 5024211017
+ * Kelas : Proglan A
+ * 
+ */
+
 #include <iostream>
 #include "PersegiPanjang.hpp"
 
