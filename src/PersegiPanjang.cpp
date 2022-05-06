@@ -253,6 +253,6 @@ PersegiPanjang PersegiPanjang::operator--(int)
 std::ostream& operator<<(std::ostream& os, PersegiPanjang p)
 {
     // cetak nilai xmin, ymin, xmax, ymax 
-    os << "{ min: (" << p[0] << "x, " << p[1] << "y), max: (" << p[2] << "x, " << p[3] << "y), Luas: "<< p.getArea() <<" }";
+    os << "{ min: (" << p[0] << ", " << p[1] << "), max: (" << p[2] << ", " << p[3] << "), Luas: "<< p.getArea() <<" }";
     return os;
 }
